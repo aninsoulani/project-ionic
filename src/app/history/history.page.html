@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>History Pemesanan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-card color="warning" *ngFor="let histori of makananlist" [inset]="true" class="list">
+    <ion-card-content>
+      
+      <h3>Menu Dipesan  : </h3><br>{{histori.desc_pesanan}}
+      <br><br>Jumlah Jenis Barang : {{histori.jml_jenis_barang}}<br>
+      Jumlah Total Barang : {{histori.jml_total_barang}}<br> 
+      Total Harga Order : {{histori.total_harga_order}}<br>
+      Waktu Pemesanan : {{histori.waktu_order}}<br>
+      ID Pemesanan : {{histori.id_histori}}<br>
+      <br><hr>
+    </ion-card-content>
+  </ion-card> -->
+
+  <ion-card color="warning" *ngFor="let histori of makananlist" class="list">
+    <ion-card-header>
+      <ion-card-title>Menu Dipesan  : </ion-card-title>
+      <ion-card-subtitle>{{histori.desc_pesanan}}</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <p>Jumlah Jenis Barang : {{histori.jml_jenis_barang}}</p>
+      <p>Jumlah Total Barang : {{histori.jml_total_barang}}</p> 
+      <p>Total Harga Order : {{histori.total_harga_order}}</p>
+      <p>Waktu Pemesanan : {{histori.waktu_order}}</p>
+      <p>ID Pemesanan : {{histori.id_histori}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

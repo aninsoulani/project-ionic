@@ -1,0 +1,42 @@
+<ion-content>
+  <div class="login-section ion-padding">
+    <div class="heading ion-padding">
+      <h1>Buat akun telebih dahulu</h1>
+      <p>Ayo mulai mengatur kasir-mu!</p>
+    </div>
+    <div class="login-form ion-padding">
+      <div class="form-input">
+        <ion-icon name="person-outline"></ion-icon>
+        <ion-item>
+          <ion-label position="floating">Nama</ion-label>
+          <ion-input type="text" required [(ngModel)]="nama_user"></ion-input>
+        </ion-item>
+      </div>
+      <div class="form-input">
+        <ion-icon name="person-outline"></ion-icon>
+        <ion-item>
+          <ion-label position="floating">Username</ion-label>
+          <ion-input type="text" required [(ngModel)]="username"></ion-input>
+        </ion-item>
+      </div>
+      <div class="form-input">
+        <ion-icon name="lock-closed-outline"></ion-icon>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" required [(ngModel)]="password"></ion-input>
+        </ion-item>
+      </div>
+      <div class="form-input">
+        <ion-icon name="lock-closed-outline"></ion-icon>
+        <ion-item>
+          <ion-label position="floating">Konfirmasi Password</ion-label>
+          <ion-input type="password" required [(ngModel)]="password_konfir"></ion-input>
+        </ion-item>
+      </div>
+    </div>
+    <div class="action-buttons ion-padding">
+      <ion-button type="submit" size="large" class="login-button" (click)="tambahUser()">Sign Up</ion-button>
+      <ion-button class="signup-button" size="large" fill="outline" routerLink="/login">Login</ion-button>
+    </div>
+  </div>
+</ion-content>

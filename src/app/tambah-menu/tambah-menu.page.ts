@@ -14,6 +14,7 @@ export class TambahMenuPage implements OnInit {
   nama_makanan: any;
   harga: any;
   kategori: any;
+  nama_user: any;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -23,6 +24,7 @@ export class TambahMenuPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.nama_user = this._apiService.loadToken();
   }
   tambahMakanan(){
     let url = this._apiService.apiURL()+'/makanan';

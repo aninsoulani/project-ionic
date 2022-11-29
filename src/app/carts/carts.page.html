@@ -1,9 +1,52 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>carts</ion-title>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Carts</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card color="warning">
+    <ion-card-header>
+      <ion-card-title>Total</ion-card-title>
+      Total Harga : {{total_harga}} <br>
+      Total Jenis Barang : {{total_jenis_barang}} <br>
+      Total Pesanan : {{total_pesanan}} <br>
+      <ion-button (click)="confirmCarts()" fill="clear" horizontal="end">Konfirmasi Pesanan</ion-button>
+      <ion-button (click)="resetCarts()" fill="clear" horizontal="end">Reset Cart</ion-button>
+    </ion-card-header>
+</ion-card>
 
+  <ion-list [inset]="true">
+    <ion-item *ngFor="let carts of list_carts">
+      <ion-label><b>{{carts.nama_makanan}}</b><br><br>Harga Akhir : {{carts.harga_akhir}}<br>Harga Satuan : {{carts.harga_satuan}}<br>Id Carts : {{carts.id_carts}}<br>Id Makanan : {{carts.id_makanan}}<br>Jumlah Pesanan : {{carts.jumlah_pesanan}}<br>Kategori Makanan : {{carts.kategori_makanan}}</ion-label>
+      <ion-button id="edit-modal{{carts.id_makanan}}" fill="clear" horizontal="end" >Edit</ion-button>
+      <ion-button (click)="deleteCarts(carts.id_carts)" fill="clear" horizontal="end">Hapus</ion-button>
+      <ion-modal #modal trigger="edit-modal{{carts.id_makanan}}">
+        <ng-template>
+          <ion-content>
+            <ion-toolbar>
+              <ion-title>Edit Carts</ion-title>
+              <ion-buttons slot="end">
+                <ion-button color="light" (click)="modal.dismiss()">Close</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+            <ion-list>
+              <ion-item>
+                <ion-label>
+                  <h2>{{carts.nama_makanan}}</h2>
+                  <ion-input required [(ngModel)]="jumlah_pesanan"  placeholder="Masukkan jumlah pesanan baru"></ion-input>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+            <ion-button type="button" (click)="editCarts(carts.id_carts)"  color="warning" expand="block">Simpan</ion-button>
+          </ion-content>
+        </ng-template>
+      </ion-modal>
+    </ion-item>
+
+    
+  </ion-list>
 </ion-content>

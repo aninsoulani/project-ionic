@@ -8,6 +8,7 @@
 </ion-header>
 
 <ion-content class="container">
+  {{nama_user}}
   <ion-grid>
     <ion-row>
       <ion-col>
@@ -21,11 +22,39 @@
           {{menu.harga}}
           <ion-grid>
             <ion-row>
-            <ion-col><ion-button fill="clear" href="edit-menu" [routerLink]="['/edit-menu/', menu.id]" routerLinkActive = "router-link-active">Edit</ion-button></ion-col>
-            <ion-col><ion-button fill="clear" (click)="deleteMakanan(menu.id)">Delete</ion-button></ion-col>
-          </ion-row>
+            <ion-col><ion-button size="small" fill="clear" href="edit-menu" [routerLink]="['/edit-menu/', menu.id]" routerLinkActive = "router-link-active">Edit</ion-button></ion-col>
+            <ion-col><ion-button size="small" fill="clear" (click)="deleteMakanan(menu.id)">Delete</ion-button></ion-col>
+            <ion-button id="tambah-carts{{menu.id}}" fill="clear" horizontal="end" >Tambah Carts</ion-button>
+        
+        </ion-row>
         </ion-grid>
         </ion-card-content>
+
+        <ion-modal #modal trigger="tambah-carts{{menu.id}}">
+          <ng-template>
+            <ion-content>
+              <ion-toolbar>
+                <ion-title>Tambah Carts</ion-title>
+                <ion-buttons slot="end">
+                  <ion-button color="light" (click)="modal.dismiss()">Close</ion-button>
+                </ion-buttons>
+              </ion-toolbar>
+              <ion-list>
+
+                
+                <ion-item>
+                  <ion-label>
+                    <h2>{{menu.nama}}</h2>
+                    <ion-input required [(ngModel)]="jumlah_pesanan" placeholder="Masukkan Jumlah Pesanan"></ion-input>
+                  </ion-label>
+                </ion-item>
+                <ion-button type="button" (click)="tambahCarts(menu.id)"  color="warning" expand="block">Tambah ke Carts</ion-button>
+                
+              </ion-list>
+            </ion-content>
+          </ng-template>
+        </ion-modal>
+
       </ion-card>
     </ion-col>
       </ion-row>

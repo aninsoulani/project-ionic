@@ -14,7 +14,7 @@ export class HomePage implements OnInit {
     private router: Router
   ) {}
   ngOnInit() {
-    this.loadToken();
+    this.logout();
   }
   //ceksesi untuk mengambil nama user
   loadToken() {

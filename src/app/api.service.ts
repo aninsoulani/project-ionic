@@ -23,14 +23,6 @@ export class ApiService {
   ) { }
 
 
-  loadToken() {
-    this.token = this.authService.getData('token');
-    if (this.token != null) {
-      this.nama = this.authService.getData('username');
-    } else {
-      this.router.navigateByUrl('/login');
-    }
-  }
 
 
 
@@ -79,6 +71,92 @@ export class ApiService {
     return this.http.get(this.apiURL()+'/makanan/'+id);
   }
 
+  getCarts(){
+    return this.http.get(this.apiURL()+'/carts');
+  }
 
+  deleteCarts(id: any){
+    return Http.request({
+      method : 'DELETE',
+      url: this.apiURL()+'/carts',
+      headers: { 'Content-Type': 'application/json'},
+      data: {
+        id: id,
+      }
+    }).then((data) => {
+      console.log(data);
+      if (data['data']['success']) {
+        console.log('berhasil hapus');
+        location.reload();
+      } else {
+        this.alertController.create({
+          header: 'Notif',
+          message: 'Gagal',
+          buttons: ['OK']
+        }).then( res => {
+          res.present();
+        });
+      }
+    })
+  }
+  resetCarts(){
+    return Http.request({
+      method : 'DELETE',
+      url: this.apiURL()+'/carts/reset',
+      headers: { 'Content-Type': 'application/json'},
+      data: {
+      }
+    }).then((data) => {
+      console.log(data);
+      if (data['data']['success']) {
+        console.log('berhasil reset');
+        location.reload();
+      } else {
+        this.alertController.create({
+          header: 'Notif',
+          message: 'Gagal',
+          buttons: ['OK']
+        }).then( res => {
+          res.present();
+        });
+      }
+    })
+  }
+  confirmCarts(){
+    return Http.request({
+      method : 'POST',
+      url: this.apiURL()+'/transaksi',
+      headers: { 'Content-Type': 'application/json'},
+      data: {
+      }
+    }).then((data) => {
+      console.log(data);
+      if (data['data']['success']) {
+        console.log('berhasil mengkonfirmasi pesanan');
+        location.reload();
+      } else {
+        this.alertController.create({
+          header: 'Notif',
+          message: 'Gagal',
+          buttons: ['OK']
+        }).then( res => {
+          res.present();
+        });
+      }
+    })
+  }
+  getHistory(){
+    return this.http.get(this.apiURL()+'/histori');
+  }
+
+  loadToken() {
+    this.token = this.authService.getData('token');
+    if (this.token != null) {
+      this.nama = this.authService.getData('nama');
+      return this.nama;
+    } else {
+      this.router.navigateByUrl('/login');
+    }
+  }
 
 }

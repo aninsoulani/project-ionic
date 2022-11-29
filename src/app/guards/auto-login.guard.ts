@@ -15,7 +15,7 @@ export class AutoLoginGuard implements CanLoad {
       this.authService.getData('token') != null
     ) {
       console.log('set token: ', this.authService.getData('token'));
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/menu');
       return true;
     } else {
       return true;

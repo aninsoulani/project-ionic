@@ -1,22 +1,29 @@
-<ion-header>
-  <ion-toolbar>
-  <ion-title>Halaman login</ion-title>
-  </ion-toolbar>
- </ion-header>
- <ion-content>
-  <ion-item lines="full">
-  <ion-label position="floating">Username</ion-label>
-  <ion-input type="text" [(ngModel)]="username" required="required"></ion-input>
-  </ion-item>
-  <ion-item lines="full">
-  <ion-label position="floating">Password</ion-label>
-  <ion-input type="password" [(ngModel)]="password" required="required">
-  </ion-input>
-  </ion-item>
-  <ion-row>
-  <ion-col>
-  <ion-button type="submit" color="primary" expand="block"
- (click)="login()">Login</ion-button>
-  </ion-col>
-  </ion-row>
- </ion-content>
+<ion-content>
+  <div class="login-section ion-padding">
+    <div class="heading ion-padding">
+      <h1>Welcome To Kasir App</h1>
+      <p>Login dulu</p>
+    </div>
+    <div class="login-form ion-padding">
+      <div class="form-input">
+        <ion-icon name="person-outline"></ion-icon>
+        <ion-item>
+          <ion-label position="floating">Username</ion-label>
+          <ion-input type="text" [(ngModel)]="username" required="required"></ion-input>
+        </ion-item>
+      </div>
+      <div class="form-input">
+        <ion-icon name="lock-closed-outline"></ion-icon>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" [(ngModel)]="password" required="required"></ion-input>
+        </ion-item>
+      </div>
+    </div>
+    <div class="action-buttons ion-padding">
+      <ion-button type="submit" size="large" class="login-button" expand="block"(click)="login()">Login</ion-button>
+      <p>Belum Punya Akun</p>
+      <ion-button class="signup-button" size="large" fill="outline" routerLink="/register">Register</ion-button>
+    </div>
+  </div>
+</ion-content>

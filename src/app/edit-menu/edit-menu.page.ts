@@ -13,6 +13,7 @@ export class EditMenuPage implements OnInit {
   id_makanan: any;
   nama_makanan: any;
   harga: any;
+  nama_user: any;
   kategori: any;
   constructor(
     private route: ActivatedRoute,
@@ -29,6 +30,7 @@ export class EditMenuPage implements OnInit {
   })}
 
   ngOnInit() {
+    this.nama_user = this._apiService.loadToken();
   }
   ambilMakanan(id: any){
     this._apiService.ambilMakanan(id).subscribe((res: any) => {

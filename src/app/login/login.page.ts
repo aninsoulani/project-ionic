@@ -34,11 +34,13 @@ export class LoginPage implements OnInit {
         password: this.password,
       },
     }).then((data) => {
-      console.log(data)
-      console.log(data['data']['success'])
+      console.log(data);
+      console.log(data['data']['success']);
+      console.log(data['data']['success']['nama']);
       if (data['data']['success']) {
         this.authService.saveData('token', data['data']['success'].token);
         this.authService.saveData('username', data['data']['success'].username);
+        this.authService.saveData('nama', data['data']['success']['nama']);
         this.username = null;
         this.password = null;
         this.router.navigateByUrl('/menu');
@@ -60,32 +62,5 @@ export class LoginPage implements OnInit {
   }
 
 
-  prosesLogin(): void {
-    if (this.username != null && this.password != null) {
-      const data = {
-        username: this.username,
-        password: this.password,
-      };
-      this.authService.postMethod(data, 'https://kasir-api-project-mobile.herokuapp.com/api/kasir/user/login').subscribe({
-        next: (hasil) => {
-          console.log(hasil);
-
-          if (hasil['data']['success']) {
-            this.authService.saveData('token', hasil['data']['success'].token);
-            this.authService.saveData('username', hasil['data']['success'].username);
-            this.username = null;
-            this.password = null;
-            this.router.navigateByUrl('/menu');
-          } else {
-            this.authService.notifikasi('Username dan Password Salah');
-          }
-        },
-        error: (e) => {
-          this.authService.notifikasi('Gagal Login, periksa koneksi internet');
-        },
-      });
-    } else {
-      this.authService.notifikasi('Username dan Password Tidak Boleh Kosong');
-    }
-  }
+  
 }
