@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Menu</ion-title>
+  </ion-toolbar>
+ </ion-header>
+ <ion-content class="container">
+  <ion-item color="#698f90">
+    <ion-label position="stacked">Nama Produk</ion-label>
+    <ion-input required [(ngModel)]="nama_makanan" placeholder="Input Nama"></ion-input>
+  </ion-item>
+  <ion-item color="#698f90">
+    <ion-label position="stacked">Kategori</ion-label>
+    <ion-input required [(ngModel)]="kategori" placeholder="Input Nama"></ion-input>
+  </ion-item>
+  <ion-item color="#698f90">
+    <ion-label position="stacked">Harga Produk</ion-label>
+    <ion-input required [(ngModel)]="harga" placeholder="Input Harga"></ion-input>
+  </ion-item>
+  <ion-row>
+  <ion-col>
+  <ion-button type="button" (click)="editMakanan()"  color="warning" expand="block">Simpan</ion-button>
+  </ion-col>
+  </ion-row>
+ </ion-content>
