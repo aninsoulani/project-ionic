@@ -1,4 +1,87 @@
-<ion-header>
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>History</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense" class="judulmenu">
+    <ion-toolbar>
+    <ion-title size="large">History</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="history-list">
+    <div class="foto">
+      <ion-img src="../../assets/iconfood.png"></ion-img>
+    </div>
+
+    <div class="deskripsi">
+      <h3>nama item</h3>
+      <p><sup>Rp. </sup>100000</p>
+    </div>
+
+    <div class="aksi">
+      <ion-buttons>
+        <ion-button size="large">
+          <ion-icon size="large" slot="icon-only" name="chevron-forward-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </div>
+  </div>
+  <!-- <ion-list [inset]="true">
+    <ion-item>
+      <ion-label>Total Item : {{total_jenis_barang}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Total Pesanan : Rp. {{total_harga}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div class="tombol-cart">
+    <ion-button color="success" (click)="confirmCarts()" fill="solid" shape="round" class="confirm">Proses Pesanan</ion-button>
+    <ion-button color="danger" (click)="resetCarts()" fill="solid" shape="round" class="reset">Clear</ion-button>
+  </div>
+
+  <ion-card class="card-item" *ngFor="let carts of list_carts">
+    <ion-card-header>
+      <ion-card-title>{{carts.nama_makanan}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content class="description">
+      <h3>Jumlah : {{carts.jumlah_pesanan}}</h3>
+      <p><sup>Total</sup>{{carts.harga_akhir}}</p>
+      <div class="tombol">
+        <ion-button size="small" color="success" id="edit-modal{{carts.id_makanan}}">
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button size="small" color="danger" (click)="deleteCarts(carts.id_carts)">
+          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-card-content>
+    <ion-modal #modal [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.5, 0.75]" handleBehavior="cycle" trigger="edit-modal{{carts.id_makanan}}">
+      <ng-template>
+        <ion-content class="ion-padding">
+          <ion-list>
+            <ion-item>
+              <ion-label>
+                <h2>{{carts.nama_makanan}}</h2>
+                <ion-input required [(ngModel)]="jumlah_pesanan"  placeholder="Jumlah baru"></ion-input>
+              </ion-label>
+            </ion-item>
+            <ion-button type="button" (click)="editCarts(carts.id_carts)" color="success" expand="block">Ubah Jumlah</ion-button>
+          </ion-list>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+  </ion-card> -->
+</ion-content>
+
+<!-- <ion-header>
   <ion-toolbar color="warning">
     <ion-buttons slot="start">
       <ion-menu-button auto-hide="false"></ion-menu-button>
@@ -8,7 +91,7 @@
 </ion-header>
 
 <ion-content>
-  <!-- <ion-card color="warning" *ngFor="let histori of makananlist" [inset]="true" class="list">
+   <ion-card color="warning" *ngFor="let histori of makananlist" [inset]="true" class="list">
     <ion-card-content>
       
       <h3>Menu Dipesan  : </h3><br>{{histori.desc_pesanan}}
@@ -19,7 +102,7 @@
       ID Pemesanan : {{histori.id_histori}}<br>
       <br><hr>
     </ion-card-content>
-  </ion-card> -->
+  </ion-card> 
 
   <ion-card color="warning" *ngFor="let histori of makananlist" class="list">
     <ion-card-header>
@@ -35,4 +118,4 @@
       <p>ID Pemesanan : {{histori.id_histori}}</p>
     </ion-card-content>
   </ion-card>
-</ion-content>
+</ion-content> -->

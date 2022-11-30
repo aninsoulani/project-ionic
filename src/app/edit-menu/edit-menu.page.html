@@ -1,4 +1,40 @@
-<ion-header>
+<ion-content>
+  <div class="login-section ion-padding">
+    <div class="heading ion-padding">
+      <h1>Ubah Menu</h1>
+    </div>
+    <div class="login-form ion-padding">
+      <div class="form-input">
+        <ion-icon name="fast-food-outline"></ion-icon>
+        <ion-item color="#698f90">
+          <ion-label position="floating">Nama Produk</ion-label>
+          <ion-input type="text" [(ngModel)]="nama_makanan" placeholder="Masukkan nama" required="required"></ion-input>
+        </ion-item>
+      </div>
+      <div class="form-input">
+        <ion-icon name="archive-outline"></ion-icon>
+        <ion-item color="#698f90">
+          <ion-label position="floating">Kategori</ion-label>
+          <ion-input type="text" [(ngModel)]="kategori" placeholder="cth. makanan, minuman, dll." required="required"></ion-input>
+        </ion-item>
+      </div>
+      <div class="form-input">
+        <ion-icon name="pricetags-outline"></ion-icon>
+        <ion-item color="#698f90">
+          <ion-label position="floating">Harga</ion-label>
+          <ion-input type="text" [(ngModel)]="harga" placeholder="Masukkan Harga (Rp.)" required="required"></ion-input>
+        </ion-item>
+      </div>
+    </div>
+    <div class="action-buttons ion-padding">
+      <ion-button type="submit" size="large" class="login-button" (click)="editMakanan()">Ubah Menu</ion-button>
+      <p></p>
+      <ion-back-button defaultHref="menu"></ion-back-button>
+    </div>
+  </div>
+</ion-content>
+
+<!-- <ion-header>
   <ion-toolbar color="warning">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="menu"></ion-back-button>
@@ -24,4 +60,4 @@
   <ion-button type="button" (click)="editMakanan()"  color="warning" expand="block">Simpan</ion-button>
   </ion-col>
   </ion-row>
- </ion-content>
+ </ion-content> -->

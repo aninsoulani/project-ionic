@@ -7,7 +7,7 @@ import { Http } from '@capacitor-community/http';
 @Component({
   selector: 'app-edit-menu',
   templateUrl: './edit-menu.page.html',
-  styleUrls: ['./edit-menu.page.scss'],
+  styleUrls: ['../tambah-menu/tambah-menu.page.scss'],
 })
 export class EditMenuPage implements OnInit {
   id_makanan: any;

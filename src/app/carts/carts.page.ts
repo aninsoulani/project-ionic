@@ -56,8 +56,8 @@ export class CartsPage implements OnInit {
     }, (error: any) => {
       console.log('gagal', error);
       this.alertController.create({
-        header: 'Notif',
-        message: 'Gagal',
+        header: 'Notification',
+        message: 'Failed',
         buttons: ['OK']
       }).then( res => {
         res.present();
@@ -68,8 +68,8 @@ export class CartsPage implements OnInit {
 
   deleteCarts(id: any){
     this.alertController.create({
-      header : 'Hapus data',
-      message: 'Yakin hapus data carts?',
+      header : 'Notification',
+      message: 'Hapus barang dari keranjang?',
       buttons: [
         {
           text: 'Batal',
@@ -78,7 +78,7 @@ export class CartsPage implements OnInit {
           }
         },
         {
-          text: 'Hapus Gas',
+          text: 'Ya, Hapus',
           handler: (data: any) => {
             // jika ditekan
             
@@ -103,8 +103,8 @@ export class CartsPage implements OnInit {
       },
     }).then((data) => {
       this.alertController.create({
-        header : 'Notif',
-        message : 'berhasil ubah',
+        header : 'Notification',
+        message : 'Berhasil ubah barang',
         buttons : ['OK'],
       }).then(res => {
         location.reload();
@@ -112,8 +112,8 @@ export class CartsPage implements OnInit {
       this.router.navigateByUrl('/carts');
     }, (err)=>{
       this.alertController.create({
-        header: 'Notif',
-        message: 'Gagal Edit',
+        header: 'Notification',
+        message: 'Gagal mengubah barang',
         buttons : ['OK']
       }).then( res => {
         res.present();
@@ -123,8 +123,8 @@ export class CartsPage implements OnInit {
   }
   resetCarts(){
     this.alertController.create({
-      header : 'Hapus data',
-      message: 'Yakin hapus semua data carts?',
+      header : 'Notification',
+      message: 'Kosongkan keranjang?',
       buttons: [
         {
           text: 'Batal',
@@ -133,7 +133,7 @@ export class CartsPage implements OnInit {
           }
         },
         {
-          text: 'Reset',
+          text: 'Ya, Kosongkan',
           handler: (data: any) => {
             // jika ditekan
             

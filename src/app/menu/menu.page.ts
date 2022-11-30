@@ -49,7 +49,7 @@ export class MenuPage {
     }, (error: any) => {
       console.log('gagal', error);
       this.alertController.create({
-        header: 'Notif',
+        header: 'Notification',
         message: 'Gagal',
         buttons: ['OK']
       }).then( res => {
@@ -62,7 +62,7 @@ export class MenuPage {
   deleteMakanan(id: any){
     this.alertController.create({
       header : 'Hapus data',
-      message: 'Yakin hapus data makanan?',
+      message: 'Kamu yakin untuk menghapusnya?',
       buttons: [
         {
           text: 'Batal',
@@ -71,7 +71,7 @@ export class MenuPage {
           }
         },
         {
-          text: 'Hapus Gas',
+          text: 'Ya, Hapus',
           handler: (data: any) => {
             // jika ditekan
             
@@ -104,15 +104,15 @@ export class MenuPage {
       let status = data['data']['status'];
       if (status == 'success'){
       this.alertController.create({
-        header: 'Notif',
-        message: 'Barang berhasil ditambahkan kedalam Cart',
+        header: 'Notification',
+        message: 'Barang berhasil dimasukkan ke dalam Cart',
         buttons: ['OK']
       }).then( res => {
         res.present();
       })}
       else if (status == 'error') {
         this.alertController.create({
-          header: 'Notif',
+          header: 'Notification',
           message: 'Gagal, Barang sudah ada di Cart',
           buttons: ['OK']
         }).then( res => {
@@ -122,10 +122,4 @@ export class MenuPage {
       }
     })
   }
-
-
-
-
-
-
 }

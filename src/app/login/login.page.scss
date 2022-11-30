@@ -19,7 +19,7 @@ ion-content{
     .heading{
         margin-top: 20px;
         h1{
-            color: #7b7b7b;
+            color: #000000;
             font-size: 1.6rem;
             font-weight: bolder;
         }
@@ -65,7 +65,7 @@ ion-content{
     .action-buttons{
         text-align: center;
         .login-button{
-            --background: #f9b801;
+            --background: #7590d6;
             width: 100%;
             font-weight: bold;
         }
@@ -74,7 +74,7 @@ ion-content{
             font-size: 1rem;
             color: #7b7b7b;
         }
-        .singup-button{
+        .signup-button{
             --border-color:#b4b4b4;
             -color:#000000;
             font-weight: bold;

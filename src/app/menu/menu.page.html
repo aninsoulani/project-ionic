@@ -1,20 +1,69 @@
 <ion-header>
-  <ion-toolbar color="warning">
+  <ion-toolbar translucent>
     <ion-buttons slot="start">
       <ion-menu-button auto-hide="false"></ion-menu-button>
     </ion-buttons>
-    <ion-title>Menu</ion-title>
+    <ion-title>Menu Tersedia</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="container">
+<ion-content>
+  <h5 class="judulmenu">Selamat Datang, {{nama_user}}</h5>
+  <ion-card class="card-item" *ngFor="let menu of makananlist">
+    <ion-card-header>
+      <ion-card-title>{{menu.nama}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content class="description">
+      <h3>{{menu.kategori}}</h3>
+      <p><sup>Rp. </sup>{{menu.harga}}</p>
+      <div class="tombol">
+        <ion-button size="small" color="success" href="edit-menu" [routerLink]="['/edit-menu/', menu.id]" routerLinkActive = "router-link-active">
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button size="small" color="danger" (click)="deleteMakanan(menu.id)">
+          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+        </ion-button>
+        <ion-button size="small" color="primary" id="tambah-carts{{menu.id}}">
+          <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-card-content>
+    <ion-modal #modal [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.5, 0.75]" handleBehavior="cycle" trigger="tambah-carts{{menu.id}}">
+      <ng-template>
+        <ion-content class="ion-padding">
+          <ion-list>
+            <ion-item>
+              <ion-label>
+                <h2>{{menu.nama}}</h2>
+                <ion-input required [(ngModel)]="jumlah_pesanan" placeholder="Masukkan Jumlah"></ion-input>
+              </ion-label>
+            </ion-item>
+            <ion-button type="button" (click)="tambahCarts(menu.id)" color="success" expand="block">Tambah ke Carts</ion-button>
+          </ion-list>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+  </ion-card>
+
+  
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button href="tambah-menu">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+
+
+<!-- <ion-content class="container">
   {{nama_user}}
   <ion-grid>
     <ion-row>
       <ion-col>
         <ion-card *ngFor="let menu of makananlist">
         <ion-card-header>
-          <ion-card-title>{{menu.nama}}</ion-card-title>
+          
           <ion-card-subtitle>{{menu.kategori}}</ion-card-subtitle>
         </ion-card-header>
       
@@ -66,4 +115,4 @@
   </ion-fab>
 
   
-</ion-content>
+</ion-content> -->

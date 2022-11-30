@@ -43,16 +43,16 @@ export class RegisterPage implements OnInit {
       let status = data['data']['status'];
       if (status == 'success'){
         this.alertController.create({
-          header: 'Notif',
-          message: 'Barang berhasil ditambahkan kedalam Cart',
+          header: 'Notification',
+          message: 'Akun Berhasil Dibuat! Silahkan Log In',
           buttons: ['OK']
         }).then( res => {
           res.present();
         })}
         else {
           this.alertController.create({
-            header: 'Notif',
-            message: 'Gagal membuat user',
+            header: 'Notification',
+            message: 'Maaf, Anda gagal membuat akun.',
             buttons: ['OK']
           }).then( res => {
             res.present();
