@@ -7,6 +7,7 @@
     width: 95%;
     margin-left: 5%;
     position: relative;
+    margin-bottom: 20px;
 
     .foto {
         width: 90px;
@@ -45,6 +46,22 @@
         }
     }
 }
+
+ion-modal {
+    --height: 50%;
+    --border-radius: 16px;
+    --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+  
+  ion-modal::part(backdrop) {
+    background: rgba(209, 213, 219);
+    opacity: 1;
+  }
+  
+  ion-modal ion-toolbar {
+    --background: #3880ff;
+    --color: white;
+  }
 
 // .container {
 //     --ion-background-color: #698f90;
