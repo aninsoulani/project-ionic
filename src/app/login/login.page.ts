@@ -51,7 +51,7 @@ export class LoginPage implements OnInit {
       //this.router.navigateByUrl('/login');
     }, (err)=>{
       this.alertController.create({
-        header: 'Notif',
+        header: 'Notification',
         message: 'Gagal login',
         buttons : ['OK']
       }).then( res => {
