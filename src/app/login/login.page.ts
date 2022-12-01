@@ -30,14 +30,14 @@ export class LoginPage implements OnInit {
       url : url,
       headers : { "Content-Type" : "application/json" },
       data : {
-        username: this.username,  
+        username: this.username,
         password: this.password,
       },
     }).then((data) => {
       console.log(data);
       console.log(data['data']['success']);
-      console.log(data['data']['success']['nama']);
-      if (data['data']['success']) {
+      let berhasil = data['data']['success'];
+      if (berhasil) {
         this.authService.saveData('token', data['data']['success'].token);
         this.authService.saveData('username', data['data']['success'].username);
         this.authService.saveData('nama', data['data']['success']['nama']);
@@ -45,22 +45,11 @@ export class LoginPage implements OnInit {
         this.password = null;
         this.router.navigateByUrl('/menu');
       } else {
+
         this.authService.notifikasi('Username dan Password Salah');
       }
-    
-      //this.router.navigateByUrl('/login');
-    }, (err)=>{
-      this.alertController.create({
-        header: 'Notification',
-        message: 'Gagal login',
-        buttons : ['OK']
-      }).then( res => {
-        res.present();
-      });
 
+      //this.router.navigateByUrl('/login');
     })
   }
-
-
-  
 }
